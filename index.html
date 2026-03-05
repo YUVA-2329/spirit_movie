@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPIRIT | Prabhas × Sandeep Reddy Vanga | March 5, 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --blood: #C0392B;
+    --ember: #E74C3C;
+    --gold: #F39C12;
+    --ash: #1a1a1a;
+    --smoke: #111111;
+    --coal: #0a0a0a;
+    --white: #F5F0EB;
+    --muted: #999;
+    --dim: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--coal);
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95), transparent);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    letter-spacing: 8px;
+    color: var(--white);
+    text-shadow: 0 0 30px rgba(139,0,0,0.8);
+  }
+  .nav-logo span { color: var(--ember); }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--ember); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #1a0505 0%, #0a0000 50%, #000 100%);
+  }
+
+  .hero-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(139,0,0,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,0,0,0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridPulse 8s ease-in-out infinite;
+  }
+
+  @keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.9) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    animation: heroIn 1.5s ease-out forwards;
+  }
+
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 6px;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s ease forwards;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(8rem, 20vw, 18rem);
+    line-height: 0.85;
+    letter-spacing: 20px;
+    color: var(--white);
+    text-shadow:
+      0 0 80px rgba(139,0,0,0.6),
+      0 0 160px rgba(139,0,0,0.3),
+      0 4px 40px rgba(0,0,0,0.8);
+    opacity: 0;
+    animation: fadeUp 1s 0.5s ease forwards;
+    position: relative;
+  }
+
+  .hero-title::after {
+    content: 'SPIRIT';
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(139,0,0,0.4);
+    transform: translate(3px, 3px);
+    z-index: -1;
+  }
+
+  .hero-sub {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 5px;
+    color: var(--muted);
+    margin-top: 16px;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s ease forwards;
+  }
+
+  .hero-sub span { color: var(--gold); }
+
+  .hero-line {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--crimson), transparent);
+    margin: 28px auto;
+    opacity: 0;
+    animation: fadeUp 1s 0.9s ease forwards;
+  }
+
+  .hero-meta {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    color: var(--dim);
+    letter-spacing: 3px;
+    opacity: 0;
+    animation: fadeUp 1s 1.1s ease forwards;
+  }
+
+  /* ── COUNTDOWN ── */
+  #countdown {
+    position: relative;
+    background: linear-gradient(180deg, #000 0%, #080000 50%, #000 100%);
+    padding: 100px 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  #countdown::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--crimson), transparent);
+  }
+
+  #countdown::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--crimson), transparent);
+  }
+
+  .countdown-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 8px;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .cd-block {
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .cd-ring-wrap {
+    position: relative;
+    width: clamp(90px, 14vw, 150px);
+    height: clamp(90px, 14vw, 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cd-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .cd-ring-bg {
+    fill: none;
+    stroke: rgba(139,0,0,0.15);
+    stroke-width: 4;
+  }
+
+  .cd-ring-fill {
+    fill: none;
+    stroke: var(--crimson);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 326.7;
+    stroke-dashoffset: calc(326.7 * (1 - var(--pct)));
+    transition: stroke-dashoffset 0.9s cubic-bezier(0.4,0,0.2,1);
+    filter: drop-shadow(0 0 6px rgba(139,0,0,0.8));
+  }
+
+  .cd-ring-secs {
+    stroke: var(--ember);
+    stroke-width: 5;
+    transition: stroke-dashoffset 0.3s linear;
+    filter: drop-shadow(0 0 10px rgba(231,76,60,1));
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .cd-sep {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: var(--crimson);
+    align-self: center;
+    animation: blink 1s step-end infinite;
+    padding-bottom: 20px;
+    text-shadow: 0 0 20px rgba(139,0,0,0.8);
+  }
+
+  .cd-sep-pulse {
+    color: var(--ember);
+    animation: sepPulse 1s ease-in-out infinite;
+  }
+
+  @keyframes sepPulse {
+    0%, 100% { opacity: 1; transform: scale(1); text-shadow: 0 0 10px rgba(231,76,60,0.6); }
+    50% { opacity: 0.2; transform: scale(0.9); text-shadow: none; }
+  }
+
+  .cd-number {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(1.8rem, 4.5vw, 3.8rem);
+    line-height: 1;
+    color: var(--white);
+    text-shadow: 0 0 30px rgba(139,0,0,0.7);
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cd-secs-num {
+    color: var(--ember) !important;
+    text-shadow: 0 0 30px rgba(231,76,60,0.9) !important;
+    animation: secFlash 1s step-end infinite;
+  }
+
+  @keyframes secFlash {
+    0% { transform: scale(1.08); }
+    10% { transform: scale(1); }
+    100% { transform: scale(1); }
+  }
+
+  .cd-unit {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    color: var(--dim);
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  /* Progress bar */
+  .cd-progress-wrap {
+    max-width: 700px;
+    margin: 50px auto 0;
+  }
+
+  .cd-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  #cd-total-label {
+    color: var(--ember);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+  }
+
+  .cd-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(139,0,0,0.15);
+    border-radius: 2px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .cd-progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #8B0000, #E74C3C);
+    border-radius: 2px;
+    transition: width 1s linear;
+    position: relative;
+  }
+
+  .cd-progress-glow {
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: var(--ember);
+    border-radius: 50%;
+    box-shadow: 0 0 16px var(--ember), 0 0 30px rgba(231,76,60,0.6);
+    animation: dotPulse 1s ease-in-out infinite;
+    transition: left 1s linear;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { transform: translateY(-50%) scale(1); box-shadow: 0 0 16px var(--ember); }
+    50% { transform: translateY(-50%) scale(1.6); box-shadow: 0 0 30px var(--ember), 0 0 60px rgba(231,76,60,0.4); }
+  }
+
+  .release-date-banner {
+    margin-top: 50px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    letter-spacing: 10px;
+    color: var(--ember);
+    text-shadow: 0 0 30px rgba(231,76,60,0.4);
+  }
+
+  /* ── SECTIONS GENERAL ── */
+  section { padding: 100px 60px; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .section-tag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 6px;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: 6px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--smoke);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-poster {
+    position: relative;
+  }
+
+  .poster-frame {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: #0a0000;
+    border: 1px solid rgba(139,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .poster-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(139,0,0,0.15) 0%, transparent 60%),
+      radial-gradient(circle at 70% 80%, rgba(139,0,0,0.1) 0%, transparent 60%);
+  }
+
+  .poster-inner {
+    text-align: center;
+    z-index: 1;
+  }
+
+  .poster-prabhas {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5rem;
+    color: var(--white);
+    letter-spacing: 4px;
+    opacity: 0.15;
+    line-height: 1;
+  }
+
+  .poster-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(139,0,0,0.8));
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(139,0,0,0.8)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(139,0,0,1)); }
+  }
+
+  .poster-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--ember);
+  }
+
+  .corner-frame {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--crimson);
+    border-style: solid;
+  }
+  .corner-frame.tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; }
+  .corner-frame.tr { top: 10px; right: 10px; border-width: 2px 2px 0 0; }
+  .corner-frame.bl { bottom: 10px; left: 10px; border-width: 0 0 2px 2px; }
+  .corner-frame.br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+
+  .about-content {}
+
+  .about-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .about-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    letter-spacing: 5px;
+    line-height: 1;
+    margin-bottom: 30px;
+    color: var(--white);
+    text-shadow: 0 0 40px rgba(139,0,0,0.4);
+  }
+
+  .about-synopsis {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #bbb;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .about-tagline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    color: var(--ember);
+    font-style: italic;
+    border-left: 3px solid var(--crimson);
+    padding-left: 20px;
+    margin-bottom: 40px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .info-item label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: var(--dim);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .info-item span {
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ── MEDIA ── */
+  #media { background: var(--coal); }
+
+  .media-tabs {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 50px;
+    background: rgba(255,255,255,0.03);
+    padding: 6px;
+    border-radius: 4px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tab-btn {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border: none;
+    background: transparent;
+    color: var(--dim);
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 3px;
+  }
+
+  .tab-btn.active {
+    background: var(--crimson);
+    color: var(--white);
+  }
+
+  .tab-btn:hover:not(.active) { color: var(--ember); }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .video-card {
+    position: relative;
+    background: var(--ash);
+    border: 1px solid rgba(139,0,0,0.2);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .video-card:hover {
+    border-color: var(--crimson);
+    transform: translateY(-4px);
+  }
+
+  .video-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #1a0505, #0a0000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-thumb::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(139,0,0,0.2) 0%, transparent 70%);
+  }
+
+  .play-btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(139,0,0,0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    z-index: 1;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+
+  .video-card:hover .play-btn {
+    background: var(--crimson);
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(139,0,0,0.6);
+  }
+
+  .video-label {
+    padding: 16px 20px;
+  }
+
+  .video-label h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .video-label p {
+    font-size: 0.8rem;
+    color: var(--dim);
+  }
+
+  .video-label .vid-tag {
+    display: inline-block;
+    background: rgba(139,0,0,0.3);
+    color: var(--ember);
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-bottom: 8px;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  /* ── CAST ── */
+  #cast { background: var(--smoke); }
+
+  .cast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+  }
+
+  .cast-card {
+    text-align: center;
+    position: relative;
+    group: true;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .cast-card:hover { transform: translateY(-8px); }
+
+  .cast-avatar {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(165deg, #1a0505 0%, #0a0000 100%);
+    border: 1px solid rgba(139,0,0,0.25);
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .cast-card:hover .cast-avatar {
+    border-color: var(--crimson);
+    box-shadow: 0 20px 60px rgba(139,0,0,0.3);
+  }
+
+  .cast-avatar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(139,0,0,0.2), transparent);
+  }
+
+  .cast-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .cast-role {
+    font-size: 0.8rem;
+    color: var(--ember);
+    letter-spacing: 2px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ── TWEETS / SOCIAL ── */
+  #social { background: var(--coal); }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .tweet-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(139,0,0,0.2);
+    padding: 24px;
+    position: relative;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .tweet-card:hover {
+    border-color: rgba(139,0,0,0.5);
+    background: rgba(139,0,0,0.05);
+  }
+
+  .tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .tweet-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(139,0,0,0.3);
+    border: 1px solid rgba(139,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .tweet-user {}
+  .tweet-user strong {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+  .tweet-user small {
+    color: var(--dim);
+    font-size: 0.75rem;
+  }
+
+  .tweet-platform {
+    margin-left: auto;
+    font-size: 1.2rem;
+  }
+
+  .tweet-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 16px;
+  }
+
+  .tweet-body .hashtag { color: var(--ember); }
+  .tweet-body .mention { color: #6fb3f2; }
+
+  .tweet-footer {
+    display: flex;
+    gap: 20px;
+    font-size: 0.8rem;
+    color: var(--dim);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .tweet-footer span { display: flex; align-items: center; gap: 5px; }
+
+  .tweet-date {
+    font-size: 0.7rem;
+    color: var(--dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── NEWS ── */
+  #news { background: var(--smoke); }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+  }
+
+  .news-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(139,0,0,0.15);
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .news-card:hover {
+    border-color: rgba(139,0,0,0.4);
+    background: rgba(139,0,0,0.04);
+  }
+
+  .news-card.featured {
+    grid-column: 1;
+    border-color: rgba(139,0,0,0.3);
+  }
+
+  .news-side { grid-column: 2; display: flex; flex-direction: column; gap: 24px; }
+
+  .news-side .news-card { padding: 22px; }
+
+  .news-tag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: var(--ember);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .news-headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+
+  .news-card.featured .news-headline { font-size: 1.8rem; }
+
+  .news-excerpt {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.7;
+  }
+
+  .news-meta {
+    margin-top: 16px;
+    font-size: 0.75rem;
+    color: var(--dim);
+    letter-spacing: 1px;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  /* ── CREW ── */
+  #crew { background: var(--coal); }
+
+  .crew-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2px;
+  }
+
+  .crew-item {
+    background: rgba(255,255,255,0.02);
+    padding: 30px 24px;
+    border: 1px solid rgba(139,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .crew-item:hover {
+    background: rgba(139,0,0,0.06);
+    border-color: rgba(139,0,0,0.3);
+  }
+
+  .crew-icon { font-size: 2.5rem; margin-bottom: 14px; }
+
+  .crew-department {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: var(--dim);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .crew-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #000;
+    padding: 60px;
+    text-align: center;
+    border-top: 1px solid rgba(139,0,0,0.3);
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    letter-spacing: 20px;
+    color: var(--white);
+    text-shadow: 0 0 40px rgba(139,0,0,0.5);
+    margin-bottom: 20px;
+  }
+
+  .footer-logos {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--dim);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--dim);
+    letter-spacing: 2px;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .footer-hashtag {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    color: var(--ember);
+    margin: 20px 0;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #000; }
+  ::-webkit-scrollbar-thumb { background: var(--crimson); border-radius: 2px; }
+
+  /* ── MODAL ── */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal.open { display: flex; }
+  .modal-inner {
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+  }
+  .modal iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: 1px solid rgba(139,0,0,0.4);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 60px 24px; }
+    #about { grid-template-columns: 1fr; gap: 40px; }
+    .news-grid { grid-template-columns: 1fr; }
+    .news-side { grid-column: 1; }
+    nav { padding: 16px 20px; }
+    .cd-block { padding: 0 15px; }
+    .cd-number { font-size: 3rem; min-width: 60px; }
+  }
+
+  .glow-red {
+    animation: glowRed 2s ease-in-out infinite;
+  }
+
+  @keyframes glowRed {
+    0%, 100% { text-shadow: 0 0 20px rgba(139,0,0,0.4); }
+    50% { text-shadow: 0 0 60px rgba(139,0,0,0.9), 0 0 120px rgba(231,76,60,0.3); }
+  }
+
+  .cigarette-line {
+    display: inline-block;
+    width: 3px;
+    height: 80px;
+    background: linear-gradient(to bottom, #fff, #aaa, #555);
+    vertical-align: middle;
+    margin: 0 4px;
+    box-shadow: 0 0 8px rgba(255,120,0,0.8);
+    animation: smokeRise 3s ease-in-out infinite;
+  }
+
+  @keyframes smokeRise {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; box-shadow: 0 0 20px rgba(255,120,0,1); }
+  }
+
+  /* Scanline effect for hero */
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.1) 2px,
+      rgba(0,0,0,0.1) 4px
+    );
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeUp 1s 1.5s ease forwards;
+  }
+
+  .scroll-arrow {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    color: var(--dim);
+    margin-bottom: 10px;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--crimson), transparent);
+    margin: 0 auto;
+    animation: scrollDown 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollDown {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* Flame particles */
+  .flame-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--ember);
+    border-radius: 50%;
+    animation: particleFloat linear infinite;
+    box-shadow: 0 0 4px var(--ember);
+  }
+
+  @keyframes particleFloat {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-200px) translateX(var(--dx)) scale(0); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SP<span>I</span>RIT</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#countdown">Countdown</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#cast">Cast</a></li>
+    <li><a href="#social">Buzz</a></li>
+    <li><a href="#news">News</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="scanlines"></div>
+  <div class="hero-vignette"></div>
+
+  <!-- Flame particles -->
+  <div class="flame-container" id="particles"></div>
+
+  <div class="hero-content">
+    <p class="hero-tag">Sandeep Reddy Vanga × Prabhas</p>
+    <div style="margin-bottom:20px; animation: fadeUp 1s 0.4s ease forwards; opacity:0;">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAYGBgYHBgcICAcKCwoLCg8ODAwODxYQERAREBYiFRkVFRkVIh4kHhweJB42KiYmKjY+NDI0PkxERExfWl98fKcBBgYGBgcGBwgIBwoLCgsKDw4MDA4PFhAREBEQFiIVGRUVGRUiHiQeHB4kHjYqJiYqNj40MjQ+TERETF9aX3x8p//CABEIAPAB4AMBIgACEQEDEQH/xAAxAAEAAwEBAQEAAAAAAAAAAAAABAUGAgMBBwEBAAMBAAAAAAAAAAAAAAAAAAECAwT/2gAMAwEAAhADEAAAAtOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8qaLXyusUBMAAAAAFfFi10JqAAAAAAAAAAAAAAAAAAODuoq6inT31fwa60+8yG1nLoacwAAAA+GUtc1uqdPQvzDwPdx2AAAAAAAAAAAAAAAARshxMz7I+sk+NsKWobKu332c35OhJ4+1RC168fYCXkh/YWFXaZaNO9Nm48aaqpz2iRHtpK2QTUAAAAAAAAAAAAAAADEbWBSU6NYrbK2Hz685ippYs3Lt2PzDrZbniHlZpuUTFH6Az9/NDPS4t64/T09d6++u5U047L84AAAAAAAAAAAAAAAABz0PP0FHX6ziusGLnNdF8X950FOmbSabI2wuqyy8k2meupU55DfZHQJyuuxG3i1FaZ7UzWYL84AAAAAAAAAAAAAAAAqomdG87RITU4z8WuMnDsc+vi0vMfNPHS0kKLyNFB0VscrzquJh89k40dnJLY/TyYUWx95Q7qu/qNOQAAAAAAAAAAAAAAA5ydbzZ3y0Sc0k1u6TP+FOn24ttJFqm9NOTjAa7PU6Ng9WnKAAAAjSUKm2EhMAAAAAAAAAAAAAADkyVtRTs+vS0ee8kyI9noYtntJOX5QtmBmfWo1efVNGnKAAAAAAAAAAAAAAAAAAAAABAoNcrpm7iYQFqAAPH2p4tmd9lNXXUL4AAAAAAAAAAAAAAAAAAAAAAAAAAAMlrc1XWdb89TmEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//xAAC/9oADAMBAAIAAwAAACHzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz7zzzzzznzzzzzzzzzzzzzzzzzzzzzSfzzzzzgjzjTzzzzzzzzzzzzzzziBQj/wN7x17hIzzzzzzzzzzzzzzzzzxDJyb7ADBZHxzzzzzzzzzzzzzzzzzzzygD34isXYTzzzzzzzzzzzzzzzzz7RzF4Y6eB8x9HzzzzzzzzzzzzzzzyZfjn6wa3zzzy//AM888888888888888VURP88q88888888888888888888888eP8884P8APPPPPPPPPPPPPPPPPPPPPPPPPPPPd/PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP/8QAAv/aAAwDAQACAAMAAAAQ888888888888888888888888888888888888888888888888888888888888888888888888872888888588888888888888888888xy3888884Y8918888888888888884dPG68Y3sX5+Vn8888888888888888sylZpMuz7W/ud8888888888888888889/fuujw3Or888888888888888889/c6eLlMxe/YO8888888888888888/FyG2er88888v8888888888888888sKVfc88i88888888888888888888888de888q88888888888888888888888888888h18888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888//xAArEQACAQIFAwQCAgMAAAAAAAABAgMAEQQSITFBMkBREBMgImCRQoFScbH/2gAIAQIBAT8A/CXkROpgKVlYXBv8zIvuBOT2suJ/jHv5oxZVLyk3PHNYRWAY8H5wfeV5ONh2kkjzPkTao4UiF9zbU0iNO+dtFoAAW9GvbSh6HNmqdssbfqo5Yoo1F7nkCllll6FsPJpUA1JJPk9ktoHa4+rHRqVlYXBB9DJ7k4N7KDRxQ1IQlRzTzhVQgXzVLOsZAtekkR+l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" 
+           style="width: clamp(200px, 40vw, 420px); filter: drop-shadow(0 0 40px rgba(139,0,0,0.9)) drop-shadow(0 0 80px rgba(139,0,0,0.4)); display:block; margin:0 auto;" 
+           alt="Spirit Logo" />
+    </div>
+    <div class="hero-line"></div>
+    <p class="hero-sub">A <span>Bhadrakali Pictures</span> & <span>T-Series</span> Production</p>
+    <p class="hero-meta" style="margin-top:10px; font-size:0.85rem; color: var(--dim);">IN CINEMAS WORLDWIDE · MARCH 5, 2027</p>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span class="scroll-arrow">SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown">
+  <p class="countdown-label">⏳ &nbsp; Releasing In</p>
+
+  <div class="countdown-grid">
+    <div class="cd-block">
+      <div class="cd-ring-wrap">
+        <svg class="cd-ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="cd-ring-bg"/>
+          <circle cx="60" cy="60" r="52" class="cd-ring-fill" id="ring-days" style="--pct:1"/>
+        </svg>
+        <span class="cd-number" id="cd-days">000</span>
+      </div>
+      <div class="cd-unit">Days</div>
+    </div>
+
+    <div class="cd-sep">:</div>
+
+    <div class="cd-block">
+      <div class="cd-ring-wrap">
+        <svg class="cd-ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="cd-ring-bg"/>
+          <circle cx="60" cy="60" r="52" class="cd-ring-fill" id="ring-hours" style="--pct:1"/>
+        </svg>
+        <span class="cd-number" id="cd-hours">00</span>
+      </div>
+      <div class="cd-unit">Hours</div>
+    </div>
+
+    <div class="cd-sep">:</div>
+
+    <div class="cd-block">
+      <div class="cd-ring-wrap">
+        <svg class="cd-ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="cd-ring-bg"/>
+          <circle cx="60" cy="60" r="52" class="cd-ring-fill" id="ring-mins" style="--pct:1"/>
+        </svg>
+        <span class="cd-number" id="cd-mins">00</span>
+      </div>
+      <div class="cd-unit">Minutes</div>
+    </div>
+
+    <div class="cd-sep cd-sep-pulse">:</div>
+
+    <div class="cd-block">
+      <div class="cd-ring-wrap">
+        <svg class="cd-ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="cd-ring-bg"/>
+          <circle cx="60" cy="60" r="52" class="cd-ring-fill cd-ring-secs" id="ring-secs" style="--pct:1"/>
+        </svg>
+        <span class="cd-number cd-secs-num" id="cd-secs">00</span>
+      </div>
+      <div class="cd-unit">Seconds</div>
+    </div>
+  </div>
+
+  <!-- Total seconds bar -->
+  <div class="cd-progress-wrap">
+    <div class="cd-progress-label">
+      <span>PRODUCTION START</span>
+      <span id="cd-total-label">— — —</span>
+      <span>RELEASE DAY</span>
+    </div>
+    <div class="cd-progress-bar">
+      <div class="cd-progress-fill" id="cd-progress-fill"></div>
+      <div class="cd-progress-glow" id="cd-progress-glow"></div>
+    </div>
+  </div>
+
+  <div class="release-date-banner">🔥 &nbsp; MARCH 5, 2027 &nbsp; 🔥</div>
+  <p style="margin-top:20px; font-family:'Oswald',sans-serif; font-size:0.75rem; letter-spacing:4px; color:var(--dim);">IN CINEMAS WORLDWIDE · 9 LANGUAGES</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-poster fade-in">
+    <div class="poster-frame">
+      <div class="corner-frame tl"></div>
+      <div class="corner-frame tr"></div>
+      <div class="corner-frame bl"></div>
+      <div class="corner-frame br"></div>
+      <img src="2.jpeg"
+       style="width:100%;height:100%;object-fit:cover;display:block;" alt="Spirit Movie Poster" />
+      <div class="poster-badge">     OFFICIAL POSTER </div>
+    </div>
+  </div>
+
+  <div class="about-content fade-in">
+    <p class="about-label">About The Film</p>
+    <h2 class="about-title">ONE BAD<br>HABIT</h2>
+    <p class="about-tagline">"Right from childhood, I have one bad habit..."</p>
+    <p class="about-synopsis">
+      A brutal yet honest cop — a former IPS officer and academy topper — descends into the criminal underworld on a relentless mission to dismantle a powerful global mafia syndicate. Driven by inner demons and a haunted past, his quest for justice pushes him beyond every moral boundary known to man. Directed by the sensational <strong style="color:var(--white)">Sandeep Reddy Vanga</strong>, Spirit is a high-voltage, larger-than-life action drama set to redefine Indian cinema.
+    </p>
+    <div class="info-grid">
+      <div class="info-item">
+        <label>Director</label>
+        <span>Sandeep Reddy Vanga</span>
+      </div>
+      <div class="info-item">
+        <label>Lead Actor</label>
+        <span>Prabhas</span>
+      </div>
+      <div class="info-item">
+        <label>Female Lead</label>
+        <span>Triptii Dimri</span>
+      </div>
+      <div class="info-item">
+        <label>Release Date</label>
+        <span>March 5, 2027</span>
+      </div>
+      <div class="info-item">
+        <label>Producer</label>
+        <span>Bhushan Kumar · Pranay Reddy Vanga</span>
+      </div>
+      <div class="info-item">
+        <label>Music</label>
+        <span>Harshavardhan Rameshwar</span>
+      </div>
+      <div class="info-item">
+        <label>Languages</label>
+        <span>9 Languages · Pan-World</span>
+      </div>
+      <div class="info-item">
+        <label>Genre</label>
+        <span>Action · Crime · Drama</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="section-header fade-in">
+    <p class="section-tag">Trailers · Teasers · Songs</p>
+    <h2 class="section-title">MEDIA VAULT</h2>
+  </div>
+
+  <div class="media-tabs fade-in">
+    <button class="tab-btn active" onclick="switchTab('trailers', this)">Trailers & Teasers</button>
+    <button class="tab-btn" onclick="switchTab('songs', this)">Songs</button>
+    <button class="tab-btn" onclick="switchTab('reels', this)">Reels & Clips</button>
+  </div>
+
+  <!-- TRAILERS TAB -->
+  <div class="tab-panel active" id="tab-trailers">
+    <div class="video-grid">
+      <div class="video-card" onclick="openModal('//youtu.be/VCGVPiD4BP0?si=xlBzQGho0PGVjPWo')">
+        <div class="video-thumb">
+          <div class="play-btn">▶</div>
+          <div style="position:absolute; bottom:16px; left:16px; font-family:'Bebas Neue',cursive; font-size:2rem; letter-spacing:3px; opacity:0.3; color:#fff; z-index:1;">SOUND STORY</div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">Audio Teaser · Oct 23, 2025</div>
+          <h3>SPIRIT – #OneBadHabit (Telugu)</h3>
+          <p>The official Sound Story released on Prabhas' 46th birthday. Features intense dialogues between Prabhas & Prakash Raj. 859K+ views.</p>
+        </div>
+      </div>
+
+      <div class="video-card" onclick="openModal('https://youtu.be/VCGVPiD4BP0?si=SVJTjkpyYeNh0ABv')">
+        <div class="video-thumb">
+          <div class="play-btn">▶</div>
+          <div style="position:absolute; bottom:16px; left:16px; font-family:'Bebas Neue',cursive; font-size:2rem; letter-spacing:3px; opacity:0.3; color:#fff; z-index:1;">हिंदी</div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">Audio Teaser · Oct 23, 2025</div>
+          <h3>SPIRIT – #OneBadHabit (Hindi)</h3>
+          <p>Hindi version of the iconic audio teaser, released across all major platforms simultaneously in 5 languages.</p>
+        </div>
+      </div>
+
+      <div class="video-card" onclick="openYT('Spirit+movie+release+date+announcement+Prabhas+March+2027')">
+        <div class="video-thumb">
+          <div class="play-btn">▶</div>
+          <div style="position:absolute; bottom:16px; left:16px; font-family:'Bebas Neue',cursive; font-size:2rem; letter-spacing:3px; opacity:0.3; color:#fff; z-index:1;">MAR 5 · 2027</div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">Release Date Announcement · Jan 17, 2026</div>
+          <h3>SPIRIT – Official Release Date Announcement</h3>
+          <p>Director Sandeep Reddy Vanga officially announces March 5, 2027 as the worldwide release date for Spirit.</p>
+        </div>
+      </div>
+
+      <div class="video-card" style="border-style: dashed; opacity:0.5; cursor:not-allowed;">
+        <div class="video-thumb" style="background: #0a0000;">
+          <div style="text-align:center; z-index:1; position:relative;">
+            <div style="font-size:3rem; margin-bottom:10px;">🎬</div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:3px; color:var(--dim);">COMING SOON</div>
+          </div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">Official Trailer · TBA</div>
+          <h3>SPIRIT – Official Full Trailer</h3>
+          <p>The full cinematic trailer has not yet been released. Stay tuned for the biggest reveal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SONGS TAB -->
+  <div class="tab-panel" id="tab-songs">
+    <div class="video-grid">
+      <div class="video-card" onclick="openYT('Spirit+movie+BGM+Harshavardhan+Rameshwar+Prabhas')">
+        <div class="video-thumb" style="background: linear-gradient(135deg, #0d0520, #000);">
+          <div class="play-btn">🎵</div>
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:4px; opacity:0.2;">
+            <span style="color:#fff; font-family:'Bebas Neue',cursive; font-size:3rem;">♪ ♫ ♪</span>
+          </div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">Background Score</div>
+          <h3>Spirit BGM / Theme Music</h3>
+          <p>Composed by Harshavardhan Rameshwar — the haunting background score from the Sound Story teaser.</p>
+        </div>
+      </div>
+
+      <div class="video-card" style="border-style: dashed; opacity:0.5; cursor:not-allowed;">
+        <div class="video-thumb" style="background: #050005;">
+          <div style="text-align:center; z-index:1; position:relative;">
+            <div style="font-size:3rem; margin-bottom:10px;">🎶</div>
+            <div style="font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:3px; color:var(--dim);">SONGS NOT YET RELEASED</div>
+          </div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">Full Album · TBA</div>
+          <h3>SPIRIT – Official Songs</h3>
+          <p>Full album and individual song releases are yet to be announced. Music by Harshavardhan Rameshwar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REELS TAB -->
+  <div class="tab-panel" id="tab-reels">
+    <div class="video-grid">
+      <div class="video-card" onclick="openYT('Spirit+Prabhas+Sandeep+Vanga+Instagram+reels+2025+2026')">
+        <div class="video-thumb" style="background: linear-gradient(135deg, #1a0505, #05001a);">
+          <div class="play-btn">📱</div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">Fan Reels · Instagram</div>
+          <h3>Spirit × Fan Edit Compilation</h3>
+          <p>Massive fan-made reels and edits flooding Instagram after the Sound Story dropped — #SpiritMode trending.</p>
+        </div>
+      </div>
+
+      <div class="video-card" onclick="openYT('Prabhas+Spirit+movie+first+look+poster+reaction+2026')">
+        <div class="video-thumb" style="background: linear-gradient(135deg, #0d1a05, #000);">
+          <div class="play-btn">🎥</div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">First Look Reactions · Jan 1, 2026</div>
+          <h3>Spirit First Look Poster – Reaction Reels</h3>
+          <p>Prabhas fans go wild reacting to the raw, bandaged, cigarette first look poster released on New Year's Day 2026.</p>
+        </div>
+      </div>
+
+      <div class="video-card" onclick="openYT('Sandeep+Reddy+Vanga+Spirit+Chiranjeevi+muhurtham+shoot')">
+        <div class="video-thumb" style="background: linear-gradient(135deg, #1a0d00, #000);">
+          <div class="play-btn">🎬</div>
+        </div>
+        <div class="video-label">
+          <div class="vid-tag">Behind The Scenes</div>
+          <h3>Spirit Muhurtham – Chiranjeevi Sounds The Clap</h3>
+          <p>Megastar Chiranjeevi graced the muhurat shot as special guest, marking the official beginning of Spirit's shoot.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAST -->
+<section id="cast">
+  <div class="section-header fade-in">
+    <p class="section-tag">The Ensemble</p>
+    <h2 class="section-title">CAST</h2>
+  </div>
+  <div class="cast-grid">
+    <div class="cast-card fade-in">
+      <div class="cast-avatar"><img src="hero.jpeg" alt=""><style></style></div>
+      <div class="cast-name">PRABHAS</div>
+      <div class="cast-role">The Ex-IPS Officer</div>
+    </div>
+    <div class="cast-card fade-in">
+      <div class="cast-avatar"><img src="female_lead.jpeg" alt=""><style></style></div>
+      <div class="cast-name">TRIPTII DIMRI</div>
+      <div class="cast-role">Female Lead</div>
+    </div>
+    <div class="cast-card fade-in">
+      <div class="cast-avatar"><img src="villain.jpeg" alt=""><style></style></div>
+      <div class="cast-name">VIVEK OBEROI</div>
+      <div class="cast-role">The Super Villain</div>
+    </div>
+    <div class="cast-card fade-in">
+      <div class="cast-avatar"><img src="lead.jpeg" alt=""><style></style></div>
+      <div class="cast-name">PRAKASH RAJ</div>
+      <div class="cast-role">Jail Superintendent</div>
+    </div>
+    <div class="cast-card fade-in">
+      <div class="cast-avatar">🎭</div>
+      <div class="cast-name">KANCHANA</div>
+      <div class="cast-role">Key Role</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL BUZZ -->
+<section id="social">
+  <div class="section-header fade-in">
+    <p class="section-tag">Twitter · Instagram · Reddit</p>
+    <h2 class="section-title">THE BUZZ</h2>
+  </div>
+
+  <div class="social-grid">
+    <div class="tweet-card fade-in">
+      <div class="tweet-header">
+        <div class="tweet-avatar">🔥</div>
+        <div class="tweet-user">
+          <strong>@imvangasandeep</strong>
+          <small>Sandeep Reddy Vanga · Director</small>
+        </div>
+        <div class="tweet-platform">𝕏</div>
+      </div>
+      <p class="tweet-body">Happy Birthday Prabhas anna 🍾🤗😘 Presenting a 'SOUND-STORY' in five Indian languages straight from the heart, for every fan who's felt his 🔥 <span class="hashtag">#OneBadHabit</span> <span class="hashtag">#Spirit</span> <span class="mention">@InSpiritMode</span></p>
+      <div class="tweet-footer">
+        <span>♥ 248K</span>
+        <span>🔁 89.2K</span>
+        <span class="tweet-date">Oct 23, 2025</span>
+      </div>
+    </div>
+
+    <div class="tweet-card fade-in">
+      <div class="tweet-header">
+        <div class="tweet-avatar">🎬</div>
+        <div class="tweet-user">
+          <strong>@InSpiritMode</strong>
+          <small>Spirit Official Account</small>
+        </div>
+        <div class="tweet-platform">𝕏</div>
+      </div>
+      <p class="tweet-body">The system knows his record. The streets know his rage. Now the world will know his <span class="hashtag">#OneBadHabit</span> 🚬<br><br><span class="hashtag">#Spirit</span> Sound Story Out Now in all Languages. <span class="mention">#Prabhas</span></p>
+      <div class="tweet-footer">
+        <span>♥ 312K</span>
+        <span>🔁 115K</span>
+        <span class="tweet-date">Oct 23, 2025</span>
+      </div>
+    </div>
+
+    <div class="tweet-card fade-in">
+      <div class="tweet-header">
+        <div class="tweet-avatar">⭐</div>
+        <div class="tweet-user">
+          <strong>@FanKing_Rebel</strong>
+          <small>Prabhas Fan · 2.1M followers</small>
+        </div>
+        <div class="tweet-platform">𝕏</div>
+      </div>
+      <p class="tweet-body">PRABHAS + SANDEEP REDDY VANGA = WILDFIRE 🔥🔥🔥<br><br>Bhai log ye teaser sun ke goosebumps aa gaye… imagine karo full trailer kya hoga!! <span class="hashtag">#Spirit</span> <span class="hashtag">#OneBadHabit</span></p>
+      <div class="tweet-footer">
+        <span>♥ 89K</span>
+        <span>🔁 34K</span>
+        <span class="tweet-date">Oct 23, 2025</span>
+      </div>
+    </div>
+
+    <div class="tweet-card fade-in">
+      <div class="tweet-header">
+        <div class="tweet-avatar">🎉</div>
+        <div class="tweet-user">
+          <strong>@CineFanatics</strong>
+          <small>Cinema News · 890K followers</small>
+        </div>
+        <div class="tweet-platform">𝕏</div>
+      </div>
+      <p class="tweet-body">OFFICIAL: <span class="hashtag">#Spirit</span> release date confirmed — <strong>March 5, 2027 🗓️</strong><br><br>Prabhas + Sandeep Reddy Vanga's cop thriller to release in 9 languages worldwide. The wait is REAL. <span class="hashtag">#Prabhas</span> <span class="hashtag">#SpiritMovie</span></p>
+      <div class="tweet-footer">
+        <span>♥ 174K</span>
+        <span>🔁 62K</span>
+        <span class="tweet-date">Jan 17, 2026</span>
+      </div>
+    </div>
+
+    <div class="tweet-card fade-in">
+      <div class="tweet-header">
+        <div class="tweet-avatar">😱</div>
+        <div class="tweet-user">
+          <strong>@TollywoodPulse</strong>
+          <small>Telugu Film Updates</small>
+        </div>
+        <div class="tweet-platform">🔴 Instagram</div>
+      </div>
+      <p class="tweet-body">Prabhas shirtless, scarred, bandaged, holding a liquor bottle while Triptii Dimri lights a cigarette for him 🚬 This FIRST LOOK poster for <span class="hashtag">#Spirit</span> dropped at midnight Jan 1 and broke the internet. Sandeep Reddy Vanga cooking 🔥</p>
+      <div class="tweet-footer">
+        <span>♥ 425K</span>
+        <span>💬 18.9K</span>
+        <span class="tweet-date">Jan 1, 2026</span>
+      </div>
+    </div>
+
+    <div class="tweet-card fade-in">
+      <div class="tweet-header">
+        <div class="tweet-avatar">🎭</div>
+        <div class="tweet-user">
+          <strong>@VivekOberoi</strong>
+          <small>Vivek Oberoi · Actor</small>
+        </div>
+        <div class="tweet-platform">𝕏</div>
+      </div>
+      <p class="tweet-body">"<span class="hashtag">#OneBadHabit</span> is all it takes to get you <span class="hashtag">#inspiritmode</span>. And what a powerful SOUND-STORY that was!<br><br>Super kicked about bringing this action to life with your unmatched magic <span class="mention">@imvangasandeep</span>" 🎬🔥</p>
+      <div class="tweet-footer">
+        <span>♥ 127K</span>
+        <span>🔁 41K</span>
+        <span class="tweet-date">Oct 23, 2025</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-header fade-in">
+    <p class="section-tag">Latest Updates</p>
+    <h2 class="section-title">NEWS</h2>
+  </div>
+
+  <div class="news-grid fade-in">
+    <div class="news-card featured">
+      <div class="news-tag">🔴 Breaking · Jan 17, 2026</div>
+      <h3 class="news-headline">Spirit Release Date LOCKED: Prabhas & Sandeep Reddy Vanga's Mega-Film to Hit Theatres March 5, 2027</h3>
+      <p class="news-excerpt">Director Sandeep Reddy Vanga officially confirmed the worldwide release date for Spirit via his social media handles. The announcement was accompanied by a striking poster, with the date written boldly over it. The film, produced jointly by Bhushan Kumar's T-Series and Bhadrakali Pictures, is set to release in 9 languages including Telugu, Hindi, Tamil, Kannada, Malayalam, Mandarin, Japanese and Korean — making it a truly global cinematic event.</p>
+      <div class="news-meta">Source: PTI · Siasat Daily</div>
+    </div>
+
+    <div class="news-side">
+      <div class="news-card">
+        <div class="news-tag">📢 Oct 23, 2025</div>
+        <h3 class="news-headline">Spirit 'Sound Story' Drops on Prabhas' 46th Birthday — 859K+ Views in 24 Hours</h3>
+        <p class="news-excerpt">The audio teaser titled "The Sound Story of Spirit" released in 5 languages, featuring Prabhas as a jailed former IPS officer under Prakash Raj's watch.</p>
+        <div class="news-meta">Source: India TV News · Outlook India</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-tag">🎬 Nov 2025</div>
+        <h3 class="news-headline">Spirit Officially Goes On Floors — Chiranjeevi Sounds the Clap at Muhurtham</h3>
+        <p class="news-excerpt">Megastar Chiranjeevi graced the muhurat shot as special guest, marking the commencement of Spirit's principal photography in Hyderabad.</p>
+        <div class="news-meta">Source: Telugu Times</div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-tag">🌐 Jan 1, 2026</div>
+        <h3 class="news-headline">Spirit First Look Poster Drops at Midnight — Prabhas' Intense Bandaged Avatar Breaks Internet</h3>
+        <p class="news-excerpt">A bandaged, scarred Prabhas holds a liquor bottle while Triptii Dimri lights a cigarette for him — the raw, gritty poster dropped at midnight on New Year's Day.</p>
+        <div class="news-meta">Source: Goodreturns · Hollywood Reporter India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREW -->
+<section id="crew">
+  <div class="section-header fade-in">
+    <p class="section-tag">The Team Behind The Vision</p>
+    <h2 class="section-title">CREW</h2>
+  </div>
+  <div class="crew-grid fade-in">
+    <div class="crew-item">
+      <div class="crew-icon">🎬</div>
+      <div class="crew-department">Written, Directed & Edited by</div>
+      <div class="crew-name">Sandeep Reddy Vanga</div>
+    </div>
+    <div class="crew-item">
+      <div class="crew-icon">🎵</div>
+      <div class="crew-department">Music</div>
+      <div class="crew-name">Harshavardhan Rameshwar</div>
+    </div>
+    <div class="crew-item">
+      <div class="crew-icon">🏭</div>
+      <div class="crew-department">Production Company</div>
+      <div class="crew-name">T-Series × Bhadrakali Pictures</div>
+    </div>
+    <div class="crew-item">
+      <div class="crew-icon">💰</div>
+      <div class="crew-department">Produced By</div>
+      <div class="crew-name">Bhushan Kumar · Pranay Reddy Vanga · Krishan Kumar</div>
+    </div>
+    <div class="crew-item">
+      <div class="crew-icon">🌍</div>
+      <div class="crew-department">Release</div>
+      <div class="crew-name">9 Languages Worldwide</div>
+    </div>
+    <div class="crew-item">
+      <div class="crew-icon">📅</div>
+      <div class="crew-department">In Cinemas</div>
+      <div class="crew-name">March 5, 2027</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SPIRIT</div>
+  <div class="footer-hashtag">#OneBadHabit · #InSpiritMode · #SpiritMovie</div>
+  <div class="footer-logos">
+    <span>T-SERIES</span>
+    <span>×</span>
+    <span>BHADRAKALI PICTURES</span>
+  </div>
+  <p class="footer-copy">WORLDWIDE RELEASE · MARCH 5, 2027 · 9 LANGUAGES</p>
+  <p class="footer-copy" style="margin-top:10px; font-size:0.65rem;">A SANDEEP REDDY VANGA FILM · FAN PAGE — NOT OFFICIAL</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="videoModal" onclick="closeModal()">
+  <div class="modal-inner" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕ CLOSE</button>
+    <iframe id="modalFrame" src="" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+  </div>
+</div>
+
+<script>
+// ── COUNTDOWN ──
+const RELEASE = new Date('2027-03-05T00:00:00+05:30').getTime();
+const PROD_START = new Date('2024-10-23T00:00:00+05:30').getTime();
+const TOTAL_SPAN = RELEASE - PROD_START;
+
+function setRing(id, pct) {
+  const el = document.getElementById(id);
+  if (el) el.style.setProperty('--pct', Math.max(0, Math.min(1, pct)));
+}
+
+function updateCountdown() {
+  const now = Date.now();
+  const diff = RELEASE - now;
+
+  if (diff <= 0) {
+    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00');
+    return;
+  }
+
+  const totalSecs = Math.floor(diff / 1000);
+  const days  = Math.floor(totalSecs / 86400);
+  const hours = Math.floor((totalSecs % 86400) / 3600);
+  const mins  = Math.floor((totalSecs % 3600) / 60);
+  const secs  = totalSecs % 60;
+
+  document.getElementById('cd-days').textContent  = String(days).padStart(3, '0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-mins').textContent  = String(mins).padStart(2, '0');
+  document.getElementById('cd-secs').textContent  = String(secs).padStart(2, '0');
+
+  // Rings: each shows fraction remaining of its max unit
+  const maxDays = Math.ceil((RELEASE - PROD_START) / 86400000);
+  setRing('ring-days',  days / maxDays);
+  setRing('ring-hours', hours / 24);
+  setRing('ring-mins',  mins / 60);
+  setRing('ring-secs',  secs / 60);
+
+  // Progress bar (elapsed % of total journey)
+  const elapsed = now - PROD_START;
+  const pct = Math.max(0, Math.min(100, (elapsed / TOTAL_SPAN) * 100));
+  const fill = document.getElementById('cd-progress-fill');
+  const glow = document.getElementById('cd-progress-glow');
+  if (fill) fill.style.width = pct.toFixed(4) + '%';
+  if (glow) glow.style.left = `calc(${pct.toFixed(4)}% - 5px)`;
+
+  // Label: total seconds remaining  
+  const label = document.getElementById('cd-total-label');
+  if (label) label.textContent = totalSecs.toLocaleString() + ' seconds left';
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ── TABS ──
+function switchTab(tabName, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tabName).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── MODAL ──
+function openModal(url) {
+  document.getElementById('modalFrame').src = url;
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openYT(query) {
+  window.open('https://www.youtube.com/results?search_query=' + encodeURIComponent(query), '_blank');
+}
+
+function closeModal() {
+  document.getElementById('modalFrame').src = '';
+  document.getElementById('videoModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ── SCROLL FADE-IN ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── PARTICLES ──
+function createParticle() {
+  const container = document.getElementById('particles');
+  if (!container) return;
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const x = (Math.random() - 0.5) * 300;
+  const duration = 2 + Math.random() * 3;
+  p.style.cssText = `
+    left: ${(Math.random() - 0.5) * 200}px;
+    bottom: 0;
+    --dx: ${x}px;
+    animation-duration: ${duration}s;
+    animation-delay: ${Math.random() * 2}s;
+    width: ${2 + Math.random() * 3}px;
+    height: ${2 + Math.random() * 3}px;
+    background: ${Math.random() > 0.5 ? '#E74C3C' : '#F39C12'};
+  `;
+  container.appendChild(p);
+  setTimeout(() => p.remove(), duration * 1000 + 2000);
+}
+
+setInterval(createParticle, 200);
+
+// ── NAV ACTIVE ──
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 80) {
+    nav.style.background = 'rgba(0,0,0,0.95)';
+  } else {
+    nav.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.95), transparent)';
+  }
+});
+</script>
+</body>
+</html>
